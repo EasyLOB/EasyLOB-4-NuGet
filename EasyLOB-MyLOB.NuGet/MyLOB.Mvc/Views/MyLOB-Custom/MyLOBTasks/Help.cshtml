@@ -1,0 +1,55 @@
+@model TaskViewModel
+
+@{
+    string CSHTML = "Help.cshtml";
+
+    string documentTitle, pageTitle;
+    AppHelper.Title(out documentTitle, out pageTitle,
+        Model.Controller, Model.Action, Model.Task);
+}
+
+<div class="z-task">
+    <h4>@pageTitle</h4>
+</div>
+
+<br/>
+
+CultureInfo.CurrentCulture.Name: @System.Globalization.CultureInfo.CurrentCulture.Name<br/>
+CultureInfo.CurrentUICulture.Name: @System.Globalization.CultureInfo.CurrentUICulture.Name<br/>
+
+<br />
+
+ActivityResources.EntitySingular: @ActivityResources.EntitySingular<br />
+ActivityResources.EntityPlural: @ActivityResources.EntityPlural<br />
+
+<br />
+
+DataAnnotationResources.Range: @DataAnnotationResources.Range<br  />
+ErrorResources.Create: @ErrorResources.Create<br  />
+EasyLOB.Resources.PatternResources.StringFormat_Date: @EasyLOB.Resources.PatternResources.StringFormat_Date<br />
+EasyLOB.Resources.PatternResources.StringFormat_DateTime: @EasyLOB.Resources.PatternResources.StringFormat_DateTime<br />
+EasyLOB.Resources.PatternResources.ToStringFormat_Date: @EasyLOB.Resources.PatternResources.ToStringFormat_Date<br />
+EasyLOB.Resources.PatternResources.ToStringFormat_DateTime: @EasyLOB.Resources.PatternResources.ToStringFormat_DateTime<br />
+PresentationResources.Administration: @PresentationResources.Administration<br  />
+SyncfusionPatternResources.GridFormat_Date: @SyncfusionPatternResources.GridFormat_Date<br />
+SyncfusionPatternResources.GridFormat_DateTime: @SyncfusionPatternResources.GridFormat_DateTime<br />
+ValidationResources.IsRequired: @ValidationResources.IsRequired<br />
+
+<br />
+
+AppHelper.DateModel.DateFormat: @AppHelper.DateModel.DateFormat - @AppHelper.DateModel.Locale<br />
+AppHelper.DateTimeModel.DateTimeFormat: @AppHelper.DateTimeModel.DateTimeFormat - @AppHelper.DateModel.Locale<br />
+
+<script>
+    $(function () {
+        try {
+            var model = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+            $(document).prop("title", "@Html.Raw(documentTitle)");
+
+            zShowOperationResult(model.OperationResult);
+        } catch (exception) {
+            zAlert(zExceptionMessage("@CSHTML", "function", exception));
+        }
+    });
+</script>
