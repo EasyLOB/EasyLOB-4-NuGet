@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{03EE3CD2-68CD-455B-986D-022CB8FFD94F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyLOB</RootNamespace>
+    <AssemblyName>MyLOB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Application, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.AuditTrail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.AuditTrail.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Environment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Environment.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Persistence, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Persistence.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyLOB.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyLOB.4.0.0\lib\net46\EasyLOB.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EasyLOBGenerator.cs" />
+    <Compile Include="Environment\MyLOBEnvironment.cs" />
+    <Compile Include="Environment\MyLOBEnvironmentHelper.cs" />
+    <Compile Include="Interfaces\Application\EasyLOB\IMyLOBGenericApplication.cs" />
+    <Compile Include="Interfaces\Application\EasyLOB\IMyLOBGenericApplicationDTO.cs" />
+    <Compile Include="Interfaces\Application\IMyLOBApplication.cs" />
+    <Compile Include="Interfaces\Persistence\EasyLOB\IMyLOBGenericRepository.cs" />
+    <Compile Include="Interfaces\Persistence\EasyLOB\IMyLOBGenericRepositoryDTO.cs" />
+    <Compile Include="Interfaces\Persistence\EasyLOB\IMyLOBUnitOfWork.cs" />
+    <Compile Include="Interfaces\Persistence\EasyLOB\IMyLOBUnitOfWorkDTO.cs" />
+    <Compile Include="MultiTenant\MyLOBMultiTenantHelper.cs" />
+    <Compile Include="MultiTenant\MyLOBTenant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
